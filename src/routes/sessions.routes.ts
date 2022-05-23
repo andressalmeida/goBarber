@@ -5,7 +5,7 @@ const sessionsRouter = Router()
 
 
 sessionsRouter.post('/', async (req, res) => {
-    try {
+    
         const {email, password} = req.body;
 
         const authenticateUser = new AuthenticateUserService();
@@ -19,9 +19,6 @@ sessionsRouter.post('/', async (req, res) => {
         
         return res.json({user, token});
 
-    } catch (err: any) {
-        return res.status(404).json({ error: err.message });
-    }
 });
 
 export default sessionsRouter;
